@@ -36,30 +36,6 @@ export default function Gallery() {
       description: "Freshly poured rice-crepe stuffed with mashed potatoes, served with coconut and tomato chutneys.",
       isPlaceholder: false,
     },
-    {
-      id: "ph-placeholder-1",
-      src: "",
-      title: "Mango Lassi / Drinks",
-      category: "Upload Your Photo",
-      description: "Placeholder for your refreshing drinks. Replace with a photo of refreshing Mango Lassi or Zeera Soda.",
-      isPlaceholder: true,
-    },
-    {
-      id: "ph-placeholder-2",
-      src: "",
-      title: "Idly & Curry Plate",
-      category: "Upload Your Photo",
-      description: "Placeholder for your breakfast combo. Replace with a shot of soft steamed Idly with rich chicken or paneer curry.",
-      isPlaceholder: true,
-    },
-    {
-      id: "ph-placeholder-3",
-      src: "",
-      title: "Weekend Fry Pulav",
-      category: "Upload Your Photo",
-      description: "Placeholder for your weekend specials. Replace with a photograph of our sizzling Gongura Mutton Pulav.",
-      isPlaceholder: true,
-    },
   ];
 
   return (

@@ -5,6 +5,7 @@ import { FOOD_MENU } from "../data/menuData";
 import { MenuItem } from "../types";
 import DecoCorner, { DecoFrame } from "./DecoCorner";
 import { useOrder, getDefaultPrice } from "../context/OrderContext";
+import { IMAGES } from "../data/assets";
 
 export default function Menu() {
   // Store menu prices in state, loading from localStorage if present
@@ -127,14 +128,30 @@ export default function Menu() {
                   const numPrice = currentPrice !== "$--" ? parseFloat(currentPrice.replace("$", "")) : getDefaultPrice(item.id);
                   const activeOption = selectedOptions[item.id] || item.options?.[0];
 
+                  const itemImage =
+                    item.id === "street-noodles" ? IMAGES.hakkaNoodles :
+                    item.id === "chats" ? IMAGES.samosaChaat :
+                    item.id === "dosa" ? IMAGES.masalaDosa : undefined;
+
                   return (
-                    <div key={item.id} className="group relative" id={`menu-item-${item.id}`}>
-                      {/* Flex row for Title, Dots, Price */}
-                      <div className="flex items-baseline justify-between w-full">
-                        <div className="flex items-center space-x-2">
-                          <h4 className="font-sans text-sm sm:text-base font-bold text-cream tracking-wide uppercase group-hover:text-gold transition-colors duration-200">
-                            {item.name}
-                          </h4>
+                    <div key={item.id} className="group flex gap-4 items-start relative border-b border-white/5 pb-6 last:border-0 last:pb-0" id={`menu-item-${item.id}`}>
+                      {itemImage && (
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border border-gold/15 shrink-0 relative group-hover:border-gold/40 transition-all duration-300 shadow-md">
+                          <img
+                            src={itemImage}
+                            alt={item.name}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-grow">
+                        {/* Flex row for Title, Dots, Price */}
+                        <div className="flex items-baseline justify-between w-full">
+                          <div className="flex items-center space-x-2">
+                            <h4 className="font-sans text-sm sm:text-base font-bold text-cream tracking-wide uppercase group-hover:text-gold transition-colors duration-200">
+                              {item.name}
+                            </h4>
                           {item.isWeekendOnly && (
                             <span className="text-[9px] bg-desi-red/25 border border-desi-red/40 text-desi-red-hover font-bold font-accent px-1.5 py-0.5 rounded-full uppercase tracking-wider flex items-center space-x-1 shrink-0">
                               <Calendar className="w-2.5 h-2.5" />
@@ -227,6 +244,7 @@ export default function Menu() {
                         </button>
                       </div>
                     </div>
+                  </div>
                   );
                 })}
               </div>
