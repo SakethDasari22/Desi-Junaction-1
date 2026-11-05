@@ -62,7 +62,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
             animate={{ opacity: 0.6 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-dark-black/90 z-50 backdrop-blur-xs"
+            className="fixed inset-0 bg-dark-black/90 z-50"
           />
 
           {/* Drawer container */}
@@ -71,26 +71,26 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed top-0 right-0 h-full w-full max-w-md bg-card-black border-l border-gold/20 shadow-2xl z-50 flex flex-col font-sans text-cream"
+            className="fixed top-0 right-0 h-full w-full max-w-md bg-card-black border-l border-cream/10 z-50 flex flex-col font-sans text-cream"
           >
             {/* Drawer Header */}
-            <div className="p-6 border-b border-gold/15 flex items-center justify-between">
+            <div className="p-6 border-b border-cream/10 flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-9 h-9 rounded-full border border-gold/30 bg-gold/5 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-full border border-cream/10 bg-cream/5 flex items-center justify-center">
                   <ShoppingBag className="w-4 h-4 text-gold" />
                 </div>
                 <div>
-                  <h3 className="font-display text-lg tracking-widest font-extrabold text-gold uppercase">
+                  <h3 className="font-serif text-lg font-semibold text-gold">
                     Your Cart
                   </h3>
-                  <p className="text-[10px] font-mono tracking-wider opacity-60">
+                  <p className="text-xs tabular-nums opacity-60">
                     {totalItems} {totalItems === 1 ? "item" : "items"} selected
                   </p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="w-8 h-8 rounded-full border border-white/5 hover:border-gold/30 hover:bg-gold/10 flex items-center justify-center text-cream-dim hover:text-gold transition-all cursor-pointer"
+                className="w-8 h-8 rounded-md border border-white/5 hover:border-cream/10 hover:bg-cream/5 flex items-center justify-center text-cream-dim hover:text-gold transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -102,16 +102,16 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                 <div className="h-64 flex flex-col items-center justify-center text-center space-y-4">
                   <ShoppingBag className="w-12 h-12 text-gold/20 stroke-1" />
                   <div className="space-y-1">
-                    <h4 className="font-display text-gold/85 text-sm tracking-wider uppercase font-bold">
+                    <h4 className="font-serif text-gold/85 text-sm font-semibold">
                       Your Cart is Empty
                     </h4>
-                    <p className="text-xs text-cream-dim/60 max-w-[240px]">
+                    <p className="text-xs text-cream-dim max-w-[240px]">
                       Add mouth-watering dishes from the menu to start your real-time tracking order.
                     </p>
                   </div>
                   <button
                     onClick={onClose}
-                    className="mt-2 text-xs font-mono font-bold tracking-widest text-gold hover:text-gold-hover border border-gold/25 hover:border-gold/40 px-4 py-2 bg-gold/5 uppercase"
+                    className="mt-2 text-xs tabular-nums font-semibold text-gold hover:text-gold-hover border border-cream/10 hover:border-cream/10 px-4 py-2 bg-cream/5"
                   >
                     Browse Menu
                   </button>
@@ -120,25 +120,25 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                 <>
                   {/* Cart Items List */}
                   <div className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-gold uppercase tracking-[0.25em] border-b border-gold/10 pb-2">
+                    <h4 className="text-xs font-semibold text-gold tracking-[0.25em] border-b border-cream/10 pb-2">
                       Selected Items
                     </h4>
                     <div className="space-y-3">
                       {cart.map((item) => (
                         <div
                           key={`${item.id}-${item.option || ""}`}
-                          className="flex items-center justify-between p-3 bg-dark-black/40 border border-white/5 rounded-md hover:border-gold/15 transition-all"
+                          className="flex items-center justify-between p-3 bg-dark-black/40 border border-white/5 rounded-md hover:border-cream/10 transition-colors"
                         >
                           <div className="space-y-1 max-w-[65%]">
-                            <span className="text-xs font-bold uppercase text-cream tracking-wide block">
+                            <span className="text-xs font-semibold text-cream block">
                               {item.name}
                             </span>
                             {item.option && (
-                              <span className="text-[10px] font-serif italic text-gold-light/70 block">
+                              <span className="text-xs font-serif text-gold-light/70 block">
                                 Option: {item.option}
                               </span>
                             )}
-                            <span className="text-[11px] font-mono text-gold font-medium">
+                            <span className="text-xs tabular-nums text-gold font-medium">
                               ${item.price.toFixed(2)} each
                             </span>
                           </div>
@@ -151,7 +151,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                               >
                                 <Minus className="w-3 h-3" />
                               </button>
-                              <span className="w-6 text-center text-xs font-mono font-semibold">
+                              <span className="w-6 text-center text-xs tabular-nums font-semibold">
                                 {item.quantity}
                               </span>
                               <button
@@ -176,24 +176,24 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                   </div>
 
                   {/* Pricing Summary */}
-                  <div className="space-y-2 bg-dark-black/60 p-4 rounded border border-gold/10">
+                  <div className="space-y-2 bg-dark-black/60 p-4 rounded border border-cream/10">
                     <div className="flex justify-between text-xs text-cream-dim">
                       <span>Subtotal</span>
-                      <span className="font-mono font-medium">${getCartTotal().toFixed(2)}</span>
+                      <span className="tabular-nums font-medium">${getCartTotal().toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-xs text-cream-dim">
-                      <span>Estimated Tax (8%)</span>
-                      <span className="font-mono font-medium">${(getCartTotal() * 0.08).toFixed(2)}</span>
+                      <span>Estimated tax (8%)</span>
+                      <span className="tabular-nums font-medium">${(getCartTotal() * 0.08).toFixed(2)}</span>
                     </div>
-                    <div className="border-t border-white/5 my-2 pt-2 flex justify-between text-sm text-gold font-bold uppercase tracking-wider">
-                      <span>Total Amount</span>
-                      <span className="font-mono text-base">${(getCartTotal() * 1.08).toFixed(2)}</span>
+                    <div className="border-t border-white/5 my-2 pt-2 flex justify-between text-sm text-gold font-semibold">
+                      <span>Total amount</span>
+                      <span className="tabular-nums text-base">${(getCartTotal() * 1.08).toFixed(2)}</span>
                     </div>
                   </div>
 
                   {/* Checkout Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <h4 className="text-[10px] font-bold text-gold uppercase tracking-[0.25em] border-b border-gold/10 pb-2">
+                    <h4 className="text-xs font-semibold text-gold tracking-[0.25em] border-b border-cream/10 pb-2">
                       Delivery & Contact Details
                     </h4>
 
@@ -208,9 +208,9 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                       <button
                         type="button"
                         onClick={() => setOrderType("pickup")}
-                        className={`py-2 px-3 text-xs font-bold uppercase tracking-wider transition-all rounded ${
+                        className={`py-2 px-3 text-xs font-semibold   transition-colors rounded ${
                           orderType === "pickup"
-                            ? "bg-gold text-dark-black font-extrabold shadow"
+                            ? "bg-gold text-dark-black font-semibold shadow"
                             : "text-cream-dim hover:text-cream"
                         }`}
                       >
@@ -219,9 +219,9 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                       <button
                         type="button"
                         onClick={() => setOrderType("delivery")}
-                        className={`py-2 px-3 text-xs font-bold uppercase tracking-wider transition-all rounded ${
+                        className={`py-2 px-3 text-xs font-semibold   transition-colors rounded ${
                           orderType === "delivery"
-                            ? "bg-gold text-dark-black font-extrabold shadow"
+                            ? "bg-gold text-dark-black font-semibold shadow"
                             : "text-cream-dim hover:text-cream"
                         }`}
                       >
@@ -272,8 +272,8 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                     {orderType === "delivery" && (
                       <div className="bg-desi-red/10 border border-desi-red/30 p-3 rounded flex items-start gap-2.5">
                         <MapPin className="w-4 h-4 text-desi-red-hover shrink-0 mt-0.5" />
-                        <span className="text-[10px] text-cream-dim leading-relaxed">
-                          Delivery is available within a 5-mile radius of our truck at <strong>535 Fairway Dr, Naperville</strong>. Delivery fee of $3.99 is cash-on-delivery.
+                        <span className="text-xs text-cream-dim leading-relaxed">
+                          Delivery is available within a 5-mile radius of our truck at <strong>535 Fairway dr, naperville</strong>. Delivery fee of $3.99 is cash-on-delivery.
                         </span>
                       </div>
                     )}
@@ -281,7 +281,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full mt-4 bg-desi-red hover:bg-desi-red-hover text-white py-3 rounded text-xs font-bold uppercase tracking-widest transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg disabled:opacity-50 cursor-pointer"
+                      className="w-full mt-4 bg-desi-red hover:bg-desi-red-hover text-white py-3 rounded text-xs font-semibold transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 cursor-pointer"
                     >
                       <span>{isSubmitting ? "PLACING ORDER..." : "CONFIRM & TRACK LIVE"}</span>
                       <ArrowRight className="w-4 h-4" />

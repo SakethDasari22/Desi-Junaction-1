@@ -40,7 +40,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
       title: "Order Completed",
       desc: "Enjoy your street flavors",
       icon: CheckCircle2,
-      color: "border-gold text-gold bg-gold/10"
+      color: "border-gold text-gold bg-cream/5"
     }
   ];
 
@@ -66,17 +66,17 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
       <div className="max-w-3xl mx-auto px-4 py-20 relative z-10 space-y-8">
         
         {/* Navigation Bar */}
-        <div className="flex items-center justify-between border-b border-gold/15 pb-5">
+        <div className="flex items-center justify-between border-b border-cream/10 pb-5">
           <button
             onClick={onClose}
-            className="flex items-center space-x-2 text-xs font-mono uppercase tracking-widest text-cream-dim hover:text-gold transition-colors cursor-pointer"
+            className="flex items-center space-x-2 text-xs tabular-nums text-cream-dim hover:text-gold transition-colors cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Site</span>
+            <span>Back to site</span>
           </button>
 
-          <div className="flex items-center space-x-2 bg-card-black/80 border border-white/5 px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider">
-            <span className={`w-2 h-2 rounded-full ${isConnected ? "bg-emerald-500 animate-pulse" : "bg-amber-500 animate-pulse"}`} />
+          <div className="flex items-center space-x-2 bg-card-black/80 border border-white/5 px-3 py-1.5 rounded-full text-xs tabular-nums">
+            <span className={`w-2 h-2 rounded-full ${isConnected ? "bg-emerald-500 " : "bg-amber-500 "}`} />
             <span className="opacity-70">
               {isConnected ? "Truck Live Synced" : "Reconnecting server..."}
             </span>
@@ -84,40 +84,40 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
           <button
             onClick={clearTracking}
-            className="text-xs font-mono uppercase tracking-widest text-cream-dim/50 hover:text-desi-red transition-colors flex items-center space-x-1 cursor-pointer"
+            className="text-xs tabular-nums text-cream-dim hover:text-desi-red transition-colors flex items-center space-x-1 cursor-pointer"
             title="Stop tracking this order"
           >
-            <span>Reset Tracker</span>
+            <span>Reset tracker</span>
             <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* Hero Order Card */}
-        <div className="bg-card-black border border-gold/20 p-6 sm:p-8 rounded-lg relative overflow-hidden shadow-2xl">
+        <div className="bg-card-black border border-cream/10 p-6 sm:p-8 rounded-lg relative overflow-hidden">
           {/* Subtle design corners */}
-          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-gold/30" />
-          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-gold/30" />
-          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-gold/30" />
-          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-gold/30" />
+          <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-cream/10" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-cream/10" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-cream/10" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-cream/10" />
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <span className="font-accent text-xs tracking-widest text-gold uppercase block">
+              <span className="font-serif text-xs text-gold block">
                 Live Order Tracker
               </span>
-              <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-cream uppercase tracking-wider">
+              <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-cream">
                 Order {activeOrder.id}
               </h2>
-              <p className="text-xs text-cream-dim/60">
+              <p className="text-xs text-cream-dim">
                 Placed on {new Date(activeOrder.createdAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
               </p>
             </div>
 
-            <div className="bg-gold/10 border border-gold/20 rounded px-4 py-2 text-right self-start sm:self-center">
-              <span className="text-[9px] uppercase tracking-widest text-gold block opacity-80">
+            <div className="bg-cream/5 border border-cream/10 rounded px-4 py-2 text-right self-start sm:self-center">
+              <span className="text-xs text-gold block opacity-80">
                 Tracking Status
               </span>
-              <span className="text-sm font-bold uppercase tracking-wider text-gold-light animate-pulse block">
+              <span className="text-sm font-semibold text-gold-light block">
                 {activeOrder.status}
               </span>
             </div>
@@ -125,8 +125,8 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
         </div>
 
         {/* Live Stepper Tracker */}
-        <div className="bg-card-black border border-white/5 p-6 sm:p-8 rounded-lg shadow-xl">
-          <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold mb-8 border-b border-white/5 pb-2">
+        <div className="bg-card-black border border-white/5 p-6 sm:p-8 rounded-lg">
+          <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold mb-8 border-b border-white/5 pb-2">
             Real-Time Timeline
           </h3>
 
@@ -134,7 +134,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
             {/* Horizontal connection line for desktop */}
             <div className="hidden md:block absolute top-[22px] left-[32px] right-[32px] h-[2px] bg-white/10" />
             <div
-              className="hidden md:block absolute top-[22px] left-[32px] h-[2px] bg-gold transition-all duration-500 shadow-[0_0_8px_rgba(201,162,39,0.5)]"
+              className="hidden md:block absolute top-[22px] left-[32px] h-[2px] bg-gold transition-colors duration-300"
               style={{ width: `${(currentIndex / 3) * 100}%` }}
             />
 
@@ -147,28 +147,28 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
                 return (
                   <div
                     key={step.key}
-                    className={`flex md:flex-col items-start md:items-center text-left md:text-center gap-4 md:gap-2 transition-all ${
+                    className={`flex md:flex-col items-start md:items-center text-left md:text-center gap-4 md:gap-2 transition-colors ${
                       isPassed ? "opacity-100" : "opacity-40"
                     }`}
                   >
                     {/* Circle icon wrapper */}
                     <div
-                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${
+                      className={`w-12 h-12 rounded-full border flex items-center justify-center shrink-0 transition-colors ${
                         isActive
-                          ? `${step.color} border-gold shadow-[0_0_15px_rgba(201,162,39,0.4)] scale-110`
+                          ? `${step.color} border-gold  scale-110`
                           : isPassed
-                          ? "border-gold text-gold bg-gold/5"
+                          ? "border-gold text-gold bg-cream/5"
                           : "border-white/10 text-cream-dim/40 bg-dark-black"
                       }`}
                     >
-                      <StepIcon className={`w-5 h-5 ${isActive ? "animate-bounce" : ""}`} />
+                      <StepIcon className={`w-5 h-5 ${isActive ? "" : ""}`} />
                     </div>
 
                     <div className="space-y-0.5">
-                      <h4 className={`text-xs font-bold uppercase tracking-wider ${isActive ? "text-gold" : "text-cream"}`}>
+                      <h4 className={`text-xs font-semibold   ${isActive ? "text-gold" : "text-cream"}`}>
                         {step.title}
                       </h4>
-                      <p className="text-[10px] text-cream-dim/60 leading-tight">
+                      <p className="text-xs text-cream-dim leading-tight">
                         {step.desc}
                       </p>
                     </div>
@@ -180,7 +180,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
         </div>
 
         {/* Real Food Truck Showcase with Instructions */}
-        <div className="bg-card-black border border-gold/15 rounded-lg overflow-hidden shadow-xl grid grid-cols-1 md:grid-cols-5">
+        <div className="bg-card-black border border-cream/10 rounded-lg overflow-hidden grid grid-cols-1 md:grid-cols-5">
           <div className="md:col-span-2 relative h-48 md:h-auto overflow-hidden">
             <img
               src={IMAGES.logo}
@@ -192,7 +192,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
           </div>
 
           <div className="p-6 md:p-8 md:col-span-3 space-y-4 flex flex-col justify-center">
-            <h4 className="font-display text-gold font-bold tracking-widest text-sm uppercase">
+            <h4 className="font-serif text-gold font-semibold text-sm">
               Our Signature Red Food Truck Trailer
             </h4>
             <div className="space-y-2">
@@ -201,9 +201,9 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
                   <p className="text-xs text-cream-dim leading-relaxed">
                     We prepare your street food fresh at our custom red food truck trailer parked in the Naperville suburbs.
                   </p>
-                  <p className="text-xs text-gold font-bold flex items-center gap-1">
+                  <p className="text-xs text-gold font-semibold flex items-center gap-1">
                     <ChevronRight className="w-3.5 h-3.5" />
-                    <span>Pickup Location: 535 Fairway Dr, Naperville, IL 60563</span>
+                    <span>Pickup location: 535 fairway dr, naperville, IL 60563</span>
                   </p>
                 </>
               ) : (
@@ -211,7 +211,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
                   <p className="text-xs text-cream-dim leading-relaxed">
                     Our team is packing up your order fresh from the trailer kitchen. Our delivery driver is loading it into their vehicle to bring it hot and fresh.
                   </p>
-                  <p className="text-xs text-gold font-bold flex items-center gap-1">
+                  <p className="text-xs text-gold font-semibold flex items-center gap-1">
                     <ChevronRight className="w-3.5 h-3.5" />
                     <span>Deliver to Name: {activeOrder.customerName}</span>
                   </p>
@@ -220,20 +220,20 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
             </div>
             
             <div className="pt-2 border-t border-white/5 flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-desi-red/10 border border-desi-red/20 flex items-center justify-center text-desi-red-hover shrink-0">
+              <div className="w-8 h-8 rounded-md bg-desi-red/10 border border-desi-red/20 flex items-center justify-center text-desi-red-hover shrink-0">
                 <Phone className="w-3.5 h-3.5" />
               </div>
-              <div className="text-[10px] font-mono leading-tight">
-                <p className="opacity-50">NEED HELP WITH THIS ORDER?</p>
-                <p className="text-cream hover:text-gold font-bold mt-0.5">Call Truck: (817) 900-3381</p>
+              <div className="text-xs tabular-nums leading-tight">
+                <p className="opacity-50">Need help with this order?</p>
+                <p className="text-cream hover:text-gold font-semibold mt-0.5">Call truck: (817) 900-3381</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Order Details Accordion / Summary */}
-        <div className="bg-card-black border border-white/5 p-6 rounded-lg shadow-xl space-y-4">
-          <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold border-b border-white/5 pb-2">
+        <div className="bg-card-black border border-white/5 p-6 rounded-lg space-y-4">
+          <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
             Items Ordered
           </h3>
 
@@ -241,16 +241,16 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
             {activeOrder.items.map((item) => (
               <div key={`${item.id}-${item.option || ""}`} className="flex justify-between items-center pt-3 first:pt-0">
                 <div className="space-y-0.5">
-                  <span className="text-xs font-bold uppercase text-cream tracking-wide">
+                  <span className="text-xs font-semibold text-cream">
                     {item.name}
                   </span>
                   {item.option && (
-                    <span className="text-[10px] font-serif italic text-gold-light/70 block">
+                    <span className="text-xs font-serif text-gold-light/70 block">
                       Option: {item.option}
                     </span>
                   )}
                 </div>
-                <div className="text-right font-mono text-xs">
+                <div className="text-right tabular-nums text-xs">
                   <span className="text-cream-dim mr-4">Qty: {item.quantity}</span>
                   <span className="text-gold font-semibold">${(item.price * item.quantity).toFixed(2)}</span>
                 </div>
@@ -259,10 +259,10 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
           </div>
 
           <div className="pt-4 border-t border-white/10 flex justify-between items-baseline">
-            <span className="text-xs font-bold uppercase tracking-wider text-gold-light">
+            <span className="text-xs font-semibold text-gold-light">
               Total Price (Incl. Tax)
             </span>
-            <span className="font-mono text-lg font-bold text-gold">
+            <span className="tabular-nums text-lg font-semibold text-gold">
               ${(activeOrder.totalPrice * 1.08).toFixed(2)}
             </span>
           </div>
@@ -272,7 +272,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
         <div className="text-center pt-4">
           <button
             onClick={onClose}
-            className="bg-gold hover:bg-gold-hover text-dark-black font-extrabold px-8 py-3 rounded text-xs uppercase tracking-widest transition-colors duration-200 shadow-lg cursor-pointer"
+            className="bg-gold hover:bg-gold-hover text-dark-black font-semibold px-8 py-3 rounded text-xs transition-colors duration-200 cursor-pointer"
           >
             Keep Browsing Desi Junction
           </button>

@@ -1,61 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
-  --font-display: "Cinzel", serif;
-  --font-accent: "Space Grotesk", sans-serif;
-  
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-accent: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Brand colors are kept. Gold is for prices and one accent, red for the main action. */
   --color-gold: #C9A227;
   --color-gold-hover: #E3B933;
   --color-gold-light: #F4E8C1;
-  --color-dark-black: #0D0D0D;
-  --color-card-black: #111111;
   --color-desi-red: #B3122B;
   --color-desi-red-hover: #CD1E39;
-  --color-cream: #F5EFE4;
-  --color-cream-dim: #DCD6C8;
+
+  /* Warm ink neutrals */
+  --color-dark-black: #0f0e0c;
+  --color-card-black: #171512;
+  --color-cream: #f1eadc;
+  --color-cream-dim: #b4ad9f;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #0D0D0D;
-  color: #F5EFE4;
+  background-color: var(--color-dark-black);
+  color: var(--color-cream);
   font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Custom subtle scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in { animation: rise-in 420ms var(--ease-out-soft) both; }
+
+button:active:not(:disabled) { transform: scale(0.98); }
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }
 
-::-webkit-scrollbar-track {
-  background: #0D0D0D;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #252525;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #C9A227;
-}
-
-/* Art Deco Border and Corners styling */
-.deco-border {
-  border: 1px solid rgba(201, 162, 39, 0.25);
-  position: relative;
-}
-
-.deco-border::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  right: 4px;
-  bottom: 4px;
-  border: 1px solid rgba(201, 162, 39, 0.12);
-  pointer-events: none;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }

@@ -82,19 +82,19 @@ export default function App() {
 
       {/* Persistent Floating Order Tracking Bar (Visible if tracker is closed but order is active) */}
       {!isTrackerOpen && activeOrder && (
-        <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 bg-card-black border border-gold/30 p-4 rounded-lg shadow-2xl z-40 flex items-center justify-between gap-4 animate-bounce-slow">
+        <div className="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-96 bg-card-black border border-cream/10 p-4 rounded-lg z-40 flex items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+            <div className="w-8 h-8 rounded-md bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
               <Clock className="w-4 h-4 animate-spin" style={{ animationDuration: "3s" }} />
             </div>
             <div>
-              <p className="text-[10px] font-mono uppercase tracking-wider text-gold">Order {activeOrder.id} Active</p>
-              <p className="text-xs font-bold text-cream uppercase">{activeOrder.status}...</p>
+              <p className="text-xs tabular-nums text-gold">Order {activeOrder.id} Active</p>
+              <p className="text-xs font-semibold text-cream">{activeOrder.status}...</p>
             </div>
           </div>
           <button
             onClick={() => setIsTrackerOpen(true)}
-            className="bg-gold hover:bg-gold-hover text-dark-black px-3 py-1.5 rounded text-[10px] font-extrabold uppercase tracking-wider flex items-center space-x-1 cursor-pointer transition-all"
+            className="bg-gold hover:bg-gold-hover text-dark-black px-3 py-1.5 rounded text-xs font-semibold flex items-center space-x-1 cursor-pointer transition-colors"
           >
             <span>Track</span>
             <ArrowRight className="w-3 h-3" />

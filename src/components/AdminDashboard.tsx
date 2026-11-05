@@ -38,7 +38,7 @@ export default function AdminDashboard() {
       case "Out for Delivery":
         return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20";
       case "Completed":
-        return "bg-white/5 text-cream-dim/50 border-white/5";
+        return "bg-white/5 text-cream-dim border-white/5";
       default:
         return "bg-zinc-500/10 text-zinc-400 border-zinc-500/20";
     }
@@ -47,16 +47,16 @@ export default function AdminDashboard() {
   return (
     <div className="fixed inset-0 z-50 bg-dark-black flex flex-col font-sans text-cream">
       {/* Top Admin Header */}
-      <header className="h-18 border-b border-gold/20 flex items-center justify-between px-6 bg-card-black shrink-0">
+      <header className="h-18 border-b border-cream/10 flex items-center justify-between px-6 bg-card-black shrink-0">
         <div className="flex items-center space-x-4">
-          <div className="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center bg-desi-red text-white font-serif font-bold text-lg">
+          <div className="w-10 h-10 rounded-md border border-gold flex items-center justify-center bg-desi-red text-white font-serif font-semibold text-lg">
             DJ
           </div>
           <div>
-            <h1 className="text-gold font-display text-base tracking-widest font-extrabold uppercase">
+            <h1 className="text-gold font-serif text-base font-semibold">
               Desi Junction • Staff POS Terminal
             </h1>
-            <p className="text-[10px] uppercase tracking-[0.2em] opacity-60">
+            <p className="text-xs tracking-[0.2em] opacity-60">
               Real-time Food Truck Order Controller
             </p>
           </div>
@@ -64,8 +64,8 @@ export default function AdminDashboard() {
 
         <div className="flex items-center space-x-4">
           {/* WS Connection Status */}
-          <div className="flex items-center space-x-2 bg-dark-black/60 border border-white/5 px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-wider">
-            <span className={`w-2 h-2 rounded-full ${isConnected ? "bg-emerald-500 animate-pulse" : "bg-amber-500 animate-pulse"}`} />
+          <div className="flex items-center space-x-2 bg-dark-black/60 border border-white/5 px-3 py-1.5 rounded-full text-xs tabular-nums">
+            <span className={`w-2 h-2 rounded-full ${isConnected ? "bg-emerald-500 " : "bg-amber-500 "}`} />
             <span>
               {isConnected ? "Kitchen Server Connected" : "Reconnecting server..."}
             </span>
@@ -73,10 +73,10 @@ export default function AdminDashboard() {
 
           <button
             onClick={() => setIsAdminMode(false)}
-            className="bg-desi-red hover:bg-desi-red-hover text-white px-4 py-2 rounded text-xs font-bold uppercase tracking-wider transition-colors duration-200 flex items-center space-x-1.5 cursor-pointer"
+            className="bg-desi-red hover:bg-desi-red-hover text-white px-4 py-2 rounded text-xs font-semibold transition-colors duration-200 flex items-center space-x-1.5 cursor-pointer"
           >
             <X className="w-4 h-4" />
-            <span>Exit Dashboard</span>
+            <span>Exit dashboard</span>
           </button>
         </div>
       </header>
@@ -85,14 +85,14 @@ export default function AdminDashboard() {
       <div className="flex-grow flex overflow-hidden">
         
         {/* Left Side: Orders Sidebar list */}
-        <aside className="w-96 border-r border-gold/15 bg-card-black/50 flex flex-col shrink-0 overflow-hidden">
+        <aside className="w-96 border-r border-cream/10 bg-card-black/50 flex flex-col shrink-0 overflow-hidden">
           {/* Filter Bar */}
           <div className="p-4 border-b border-white/5 bg-dark-black/40 grid grid-cols-2 gap-2">
             <button
               onClick={() => setFilter("active")}
-              className={`py-2 text-xs font-bold uppercase tracking-wider rounded border transition-all ${
+              className={`py-2 text-xs font-semibold   rounded border transition-colors ${
                 filter === "active"
-                  ? "bg-gold border-gold text-dark-black font-extrabold"
+                  ? "bg-gold border-gold text-dark-black font-semibold"
                   : "border-white/5 text-cream-dim hover:text-cream bg-dark-black/20"
               }`}
             >
@@ -100,9 +100,9 @@ export default function AdminDashboard() {
             </button>
             <button
               onClick={() => setFilter("all")}
-              className={`py-2 text-xs font-bold uppercase tracking-wider rounded border transition-all ${
+              className={`py-2 text-xs font-semibold   rounded border transition-colors ${
                 filter === "all"
-                  ? "bg-gold border-gold text-dark-black font-extrabold"
+                  ? "bg-gold border-gold text-dark-black font-semibold"
                   : "border-white/5 text-cream-dim hover:text-cream bg-dark-black/20"
               }`}
             >
@@ -115,7 +115,7 @@ export default function AdminDashboard() {
             {filteredOrders.length === 0 ? (
               <div className="p-8 text-center space-y-3">
                 <ClipboardList className="w-10 h-10 text-gold/20 mx-auto stroke-1" />
-                <p className="text-xs text-cream-dim/60">No orders matching this filter.</p>
+                <p className="text-xs text-cream-dim">No orders matching this filter.</p>
               </div>
             ) : (
               filteredOrders.map((order) => {
@@ -127,26 +127,26 @@ export default function AdminDashboard() {
                   <button
                     key={order.id}
                     onClick={() => setSelectedOrderId(order.id)}
-                    className={`w-full p-4 text-left border-l-4 transition-all hover:bg-gold/5 flex flex-col gap-2 ${
+                    className={`w-full p-4 text-left border-l-4 transition-colors hover:bg-cream/5 flex flex-col gap-2 ${
                       isSelected
-                        ? "bg-gold/10 border-gold"
+                        ? "bg-cream/5 border-gold"
                         : "border-transparent bg-transparent"
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-mono text-xs font-bold tracking-wider text-gold">
+                      <span className="tabular-nums text-xs font-semibold text-gold">
                         {order.id}
                       </span>
-                      <span className="text-[10px] text-cream-dim/50 font-mono">
+                      <span className="text-xs text-cream-dim tabular-nums">
                         {timeString}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold uppercase text-cream tracking-wide">
+                      <span className="text-xs font-semibold text-cream">
                         {order.customerName}
                       </span>
-                      <span className="text-[10px] uppercase font-semibold text-cream-dim flex items-center gap-1">
+                      <span className="text-xs font-semibold text-cream-dim flex items-center gap-1">
                         {order.type === "pickup" ? (
                           <>
                             <Utensils className="w-3 h-3 text-gold/60" />
@@ -162,10 +162,10 @@ export default function AdminDashboard() {
                     </div>
 
                     <div className="flex justify-between items-center mt-1">
-                      <span className="text-[10px] text-cream-dim/60">
+                      <span className="text-xs text-cream-dim">
                         {order.items.reduce((sum, item) => sum + item.quantity, 0)} items • ${(order.totalPrice * 1.08).toFixed(2)}
                       </span>
-                      <span className={`text-[9px] uppercase tracking-wider px-2 py-0.5 rounded border ${getStatusBadgeColor(order.status)}`}>
+                      <span className={`text-xs   px-2 py-0.5 rounded border ${getStatusBadgeColor(order.status)}`}>
                         {order.status}
                       </span>
                     </div>
@@ -182,48 +182,48 @@ export default function AdminDashboard() {
             <div className="max-w-3xl mx-auto space-y-6">
               
               {/* Heading Panel */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gold/15 pb-6 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-cream/10 pb-6 gap-4">
                 <div className="space-y-1">
-                  <span className="font-accent text-xs tracking-widest text-gold uppercase block">
+                  <span className="font-serif text-xs text-gold block">
                     MANAGE ACTIVE ORDER
                   </span>
-                  <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-cream uppercase tracking-wider">
+                  <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-cream">
                     Order {selectedOrder.id}
                   </h2>
-                  <p className="text-xs text-cream-dim/60">
+                  <p className="text-xs text-cream-dim">
                     Received on {new Date(selectedOrder.createdAt).toLocaleDateString()} at {new Date(selectedOrder.createdAt).toLocaleTimeString()}
                   </p>
                 </div>
 
                 <div className="flex flex-col items-start sm:items-end gap-1">
-                  <span className="text-[10px] text-cream-dim/50 uppercase tracking-widest block">
+                  <span className="text-xs text-cream-dim block">
                     Current Status
                   </span>
-                  <span className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded border ${getStatusBadgeColor(selectedOrder.status)}`}>
+                  <span className={`text-xs font-semibold   px-3 py-1 rounded border ${getStatusBadgeColor(selectedOrder.status)}`}>
                     {selectedOrder.status}
                   </span>
                 </div>
               </div>
 
               {/* Status Update Actions - Quick Stepper Buttons */}
-              <div className="bg-card-black border border-gold/10 p-5 rounded-lg space-y-3">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold border-b border-white/5 pb-2">
+              <div className="bg-card-black border border-cream/10 p-5 rounded-lg space-y-3">
+                <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
                   Kitchen Controller Actions
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <button
                     disabled={selectedOrder.status === "Preparing" || selectedOrder.status === "Completed"}
                     onClick={() => updateOrderStatus(selectedOrder.id, "Preparing")}
-                    className="py-3 px-4 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/25 disabled:opacity-30 rounded text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
+                    className="py-3 px-4 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/25 disabled:opacity-30 rounded text-xs font-semibold transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
                   >
                     <Utensils className="w-4 h-4" />
-                    <span>Start Preparing</span>
+                    <span>Start preparing</span>
                   </button>
 
                   <button
                     disabled={selectedOrder.status === "Ready for Pickup" || selectedOrder.status === "Out for Delivery" || selectedOrder.status === "Completed"}
                     onClick={() => updateOrderStatus(selectedOrder.id, selectedOrder.type === "pickup" ? "Ready for Pickup" : "Out for Delivery")}
-                    className="py-3 px-4 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 disabled:opacity-30 rounded text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
+                    className="py-3 px-4 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 disabled:opacity-30 rounded text-xs font-semibold transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
                   >
                     <Truck className="w-4 h-4" />
                     <span>{selectedOrder.type === "pickup" ? "Mark Ready for Pickup" : "Mark Out for Delivery"}</span>
@@ -232,10 +232,10 @@ export default function AdminDashboard() {
                   <button
                     disabled={selectedOrder.status === "Completed"}
                     onClick={() => updateOrderStatus(selectedOrder.id, "Completed")}
-                    className="py-3 px-4 bg-gold/10 hover:bg-gold/20 text-gold border border-gold/25 disabled:opacity-30 rounded text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center space-x-1.5 cursor-pointer"
+                    className="py-3 px-4 bg-cream/5 hover:bg-cream/5 text-gold border border-cream/10 disabled:opacity-30 rounded text-xs font-semibold transition-colors flex items-center justify-center space-x-1.5 cursor-pointer"
                   >
                     <Check className="w-4 h-4" />
-                    <span>Complete Order</span>
+                    <span>Complete order</span>
                   </button>
                 </div>
               </div>
@@ -245,7 +245,7 @@ export default function AdminDashboard() {
                 
                 {/* Customer Card */}
                 <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-4">
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold border-b border-white/5 pb-2">
+                  <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
                     Customer & Dispatch Info
                   </h3>
 
@@ -255,21 +255,21 @@ export default function AdminDashboard() {
                         C
                       </div>
                       <div>
-                        <p className="opacity-45 text-[9px] uppercase tracking-wider">CLIENT NAME</p>
-                        <p className="font-bold text-cream uppercase">{selectedOrder.customerName}</p>
+                        <p className="opacity-45 text-xs">Client name</p>
+                        <p className="font-semibold text-cream">{selectedOrder.customerName}</p>
                       </div>
                     </div>
 
                     <a
                       href={`tel:${selectedOrder.customerPhone}`}
-                      className="flex items-center space-x-3 text-xs hover:bg-gold/5 p-1 rounded-md transition-all group"
+                      className="flex items-center space-x-3 text-xs hover:bg-cream/5 p-1 rounded-md transition-colors group"
                     >
-                      <div className="w-7 h-7 rounded bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:border-gold/30">
+                      <div className="w-7 h-7 rounded bg-white/5 border border-white/10 flex items-center justify-center text-gold group-hover:border-cream/10">
                         <Phone className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <p className="opacity-45 text-[9px] uppercase tracking-wider">PHONE NUMBER</p>
-                        <p className="font-bold text-cream group-hover:text-gold transition-colors">{selectedOrder.customerPhone}</p>
+                        <p className="opacity-45 text-xs">Phone number</p>
+                        <p className="font-semibold text-cream group-hover:text-cream transition-colors">{selectedOrder.customerPhone}</p>
                       </div>
                     </a>
 
@@ -279,8 +279,8 @@ export default function AdminDashboard() {
                           <Mail className="w-3.5 h-3.5" />
                         </div>
                         <div>
-                          <p className="opacity-45 text-[9px] uppercase tracking-wider">EMAIL ADDRESS</p>
-                          <p className="font-bold text-cream text-wrap truncate">{selectedOrder.customerEmail}</p>
+                          <p className="opacity-45 text-xs">Email address</p>
+                          <p className="font-semibold text-cream text-wrap truncate">{selectedOrder.customerEmail}</p>
                         </div>
                       </div>
                     )}
@@ -290,8 +290,8 @@ export default function AdminDashboard() {
                         {selectedOrder.type === "pickup" ? <Utensils className="w-3.5 h-3.5 text-gold" /> : <Truck className="w-3.5 h-3.5 text-desi-red-hover" />}
                       </div>
                       <div>
-                        <p className="opacity-45 text-[9px] uppercase tracking-wider">DISPATCH TYPE</p>
-                        <p className="font-bold uppercase text-cream">
+                        <p className="opacity-45 text-xs">Dispatch type</p>
+                        <p className="font-semibold text-cream">
                           {selectedOrder.type === "pickup" ? "Customer Pickup" : "Delivery to Door"}
                         </p>
                       </div>
@@ -301,7 +301,7 @@ export default function AdminDashboard() {
 
                 {/* Checklist Prep card */}
                 <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-4">
-                  <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold border-b border-white/5 pb-2">
+                  <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
                     Assembly Checklist
                   </h3>
 
@@ -314,25 +314,25 @@ export default function AdminDashboard() {
                         <button
                           key={itemKey}
                           onClick={() => toggleItemCheck(itemKey)}
-                          className={`w-full p-2.5 text-left rounded-md border flex items-center justify-between transition-all cursor-pointer ${
+                          className={`w-full p-2.5 text-left rounded-md border flex items-center justify-between transition-colors cursor-pointer ${
                             isChecked
                               ? "bg-emerald-500/5 border-emerald-500/20 text-emerald-400"
-                              : "bg-dark-black/40 border-white/5 text-cream hover:border-gold/20"
+                              : "bg-dark-black/40 border-white/5 text-cream hover:border-cream/10"
                           }`}
                         >
                           <div className="space-y-0.5">
-                            <span className={`text-xs font-bold uppercase tracking-wide block ${isChecked ? "line-through opacity-50" : ""}`}>
+                            <span className={`text-xs font-semibold   block ${isChecked ? "line-through opacity-50" : ""}`}>
                               {item.name}
                             </span>
                             {item.option && (
-                              <span className="text-[10px] font-serif italic opacity-70 block">
+                              <span className="text-xs font-serif opacity-70 block">
                                 Option: {item.option}
                               </span>
                             )}
                           </div>
 
                           <div className="flex items-center space-x-3 shrink-0">
-                            <span className="text-xs font-mono font-bold bg-dark-black px-2 py-1 rounded">
+                            <span className="text-xs tabular-nums font-semibold bg-dark-black px-2 py-1 rounded">
                               QTY: {item.quantity}
                             </span>
                             {isChecked ? (
@@ -351,26 +351,26 @@ export default function AdminDashboard() {
 
               {/* Order Cost Breakdown */}
               <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-2 text-xs">
-                <h3 className="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gold border-b border-white/5 pb-2 mb-3">
+                <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2 mb-3">
                   Bill Summary
                 </h3>
                 <div className="flex justify-between opacity-70">
                   <span>Subtotal</span>
-                  <span className="font-mono">${selectedOrder.totalPrice.toFixed(2)}</span>
+                  <span className="tabular-nums">${selectedOrder.totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between opacity-70">
-                  <span>Sales Tax (8%)</span>
-                  <span className="font-mono">${(selectedOrder.totalPrice * 0.08).toFixed(2)}</span>
+                  <span>Sales tax (8%)</span>
+                  <span className="tabular-nums">${(selectedOrder.totalPrice * 0.08).toFixed(2)}</span>
                 </div>
                 {selectedOrder.type === "delivery" && (
                   <div className="flex justify-between opacity-70">
-                    <span>Delivery Runner Surcharge (Cash on Delivery)</span>
-                    <span className="font-mono text-amber-400">$3.99 COD</span>
+                    <span>Delivery runner surcharge (cash on delivery)</span>
+                    <span className="tabular-nums text-amber-400">$3.99 COD</span>
                   </div>
                 )}
-                <div className="flex justify-between text-gold font-bold text-sm border-t border-white/5 pt-2 mt-2 uppercase tracking-wide">
-                  <span>Grand Total</span>
-                  <span className="font-mono">${(selectedOrder.totalPrice * 1.08).toFixed(2)}</span>
+                <div className="flex justify-between text-gold font-semibold text-sm border-t border-white/5 pt-2 mt-2">
+                  <span>Grand total</span>
+                  <span className="tabular-nums">${(selectedOrder.totalPrice * 1.08).toFixed(2)}</span>
                 </div>
               </div>
 
@@ -379,8 +379,8 @@ export default function AdminDashboard() {
             <div className="h-full flex flex-col items-center justify-center text-center space-y-4 opacity-50">
               <ClipboardList className="w-16 h-16 text-gold/30 stroke-1" />
               <div className="space-y-1">
-                <h3 className="font-display text-gold uppercase tracking-widest text-sm font-bold">No Order Selected</h3>
-                <p className="text-xs text-cream-dim/70 max-w-[280px]">Please select an incoming order from the left sidebar panel to begin preparing and managing status.</p>
+                <h3 className="font-serif text-gold text-sm font-semibold">No order selected</h3>
+                <p className="text-xs text-cream-dim max-w-[280px]">Please select an incoming order from the left sidebar panel to begin preparing and managing status.</p>
               </div>
             </div>
           )}
