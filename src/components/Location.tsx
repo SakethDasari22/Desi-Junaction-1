@@ -147,7 +147,7 @@ export default function Location() {
 
               {/* Notice below hours */}
               <div className="mt-8 pt-4 border-t border-white/5 text-left text-xs text-cream-dim/55 leading-relaxed">
-                ℹ️ Hours are subject to change during extreme weather conditions or special street festivals. Feel free to call our order line at <strong className="text-gold">{CONTACT_INFO.phoneOrder}</strong> to double-check truck availability!
+                Hours can change during bad weather or street festivals. Call the order line at <strong className="text-gold">{CONTACT_INFO.phoneOrder}</strong> to check the truck is open.
               </div>
 
             </div>
