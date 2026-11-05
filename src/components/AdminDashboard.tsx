@@ -54,10 +54,10 @@ export default function AdminDashboard() {
           </div>
           <div>
             <h1 className="text-gold font-serif text-base font-semibold">
-              Desi Junction • Staff POS Terminal
+              Desi Junction • Staff POS terminal
             </h1>
-            <p className="text-xs tracking-[0.2em] opacity-60">
-              Real-time Food Truck Order Controller
+            <p className="text-xs opacity-60">
+              Real-time food truck order controller
             </p>
           </div>
         </div>
@@ -185,7 +185,7 @@ export default function AdminDashboard() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-cream/10 pb-6 gap-4">
                 <div className="space-y-1">
                   <span className="font-serif text-xs text-gold block">
-                    MANAGE ACTIVE ORDER
+                    Manage active order
                   </span>
                   <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-cream">
                     Order {selectedOrder.id}
@@ -197,7 +197,7 @@ export default function AdminDashboard() {
 
                 <div className="flex flex-col items-start sm:items-end gap-1">
                   <span className="text-xs text-cream-dim block">
-                    Current Status
+                    Current status
                   </span>
                   <span className={`text-xs font-semibold   px-3 py-1 rounded border ${getStatusBadgeColor(selectedOrder.status)}`}>
                     {selectedOrder.status}
@@ -207,8 +207,8 @@ export default function AdminDashboard() {
 
               {/* Status Update Actions - Quick Stepper Buttons */}
               <div className="bg-card-black border border-cream/10 p-5 rounded-lg space-y-3">
-                <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
-                  Kitchen Controller Actions
+                <h3 className="text-xs tabular-nums font-semibold text-gold border-b border-white/5 pb-2">
+                  Kitchen controller actions
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   <button
@@ -245,8 +245,8 @@ export default function AdminDashboard() {
                 
                 {/* Customer Card */}
                 <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-4">
-                  <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
-                    Customer & Dispatch Info
+                  <h3 className="text-xs tabular-nums font-semibold text-gold border-b border-white/5 pb-2">
+                    Customer & dispatch info
                   </h3>
 
                   <div className="space-y-3">
@@ -301,8 +301,8 @@ export default function AdminDashboard() {
 
                 {/* Checklist Prep card */}
                 <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-4">
-                  <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
-                    Assembly Checklist
+                  <h3 className="text-xs tabular-nums font-semibold text-gold border-b border-white/5 pb-2">
+                    Assembly checklist
                   </h3>
 
                   <div className="space-y-2.5">
@@ -351,8 +351,8 @@ export default function AdminDashboard() {
 
               {/* Order Cost Breakdown */}
               <div className="bg-card-black border border-white/5 p-5 rounded-lg space-y-2 text-xs">
-                <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2 mb-3">
-                  Bill Summary
+                <h3 className="text-xs tabular-nums font-semibold text-gold border-b border-white/5 pb-2 mb-3">
+                  Bill summary
                 </h3>
                 <div className="flex justify-between opacity-70">
                   <span>Subtotal</span>

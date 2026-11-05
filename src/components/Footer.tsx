@@ -31,7 +31,7 @@ export default function Footer() {
                   Desi Junction
                 </span>
                 <span className="text-xs font-semibold text-cream-dim">
-                  Chicago's First Street Food Truck
+                  Chicago's first street food truck
                 </span>
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function Footer() {
           {/* Column 2: Contact Numbers & Address (Spans 4 cols) */}
           <div className="lg:col-span-4 space-y-5" id="footer-col-contact">
             <h3 className="font-sans text-sm font-medium text-cream">
-              Contact & Directions
+              Contact & directions
             </h3>
             <div className="h-[1px] w-12 bg-gold/30" />
 
@@ -115,7 +115,7 @@ export default function Footer() {
           {/* Column 3: Hours Summary (Spans 4 cols) */}
           <div className="lg:col-span-4 space-y-5" id="footer-col-hours">
             <h3 className="font-sans text-sm font-medium text-cream">
-              Quick Schedule
+              Quick schedule
             </h3>
             <div className="h-[1px] w-12 bg-gold/30" />
 

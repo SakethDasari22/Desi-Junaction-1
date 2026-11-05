@@ -59,7 +59,7 @@ export default function Header({ onOpenCart, onOpenTracker }: HeaderProps) {
                 Desi Junction
               </span>
               <span className="text-xs font-serif text-cream/75 -mt-1 hidden sm:block">
-                Chicago's First Street Food Truck
+                Chicago's first street food truck
               </span>
             </div>
           </a>

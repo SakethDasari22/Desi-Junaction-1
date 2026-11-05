@@ -106,7 +106,7 @@ export default function Catering() {
                   
                   <div className="space-y-2">
                     <h3 className="font-serif text-xl text-gold font-semibold">
-                      Inquiry Received!
+                      Inquiry received!
                     </h3>
                     <p className="text-sm text-cream max-w-md mx-auto leading-relaxed">
                       Thank you for contacting Desi Junction. Your catering request has been successfully recorded in our simulated reservation system.
@@ -121,12 +121,12 @@ export default function Catering() {
                       onClick={handleResetForm}
                       className="bg-cream/5 hover:bg-cream/5 text-gold border border-cream/10 px-6 py-2.5 rounded text-xs font-semibold transition-colors"
                     >
-                      Submit Another Inquiry
+                      Submit another inquiry
                     </button>
                   </div>
                 </div>
               ) : (
-                /* Interactive Request Form */
+                /* Interactive request form */
                 <form onSubmit={handleSubmit} className="space-y-5 text-left relative z-10" id="catering-inquiry-form">
                   <div className="flex items-center space-x-2 text-gold mb-2">
                     <Mail className="w-4 h-4" />
@@ -134,14 +134,14 @@ export default function Catering() {
                   </div>
 
                   <h3 className="font-serif text-lg text-cream font-semibold mb-4">
-                    PLAN YOUR EVENT MENU
+                    Plan your event menu
                   </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
                       <label className="block text-sm text-cream-dim">
-                        Full Name *
+                        Full name *
                       </label>
                       <input
                         type="text"
@@ -156,7 +156,7 @@ export default function Catering() {
                     {/* Email */}
                     <div className="space-y-1.5">
                       <label className="block text-sm text-cream-dim">
-                        Email Address *
+                        Email address *
                       </label>
                       <input
                         type="email"
@@ -206,7 +206,7 @@ export default function Catering() {
                   {/* Phone */}
                   <div className="space-y-1.5">
                     <label className="block text-sm text-cream-dim">
-                      Phone Number
+                      Phone number
                     </label>
                     <input
                       type="tel"

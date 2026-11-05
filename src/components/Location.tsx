@@ -55,7 +55,7 @@ export default function Location() {
                     {CONTACT_INFO.address}
                   </p>
                   <p className="text-xs text-cream-dim">
-                    Naperville, Illinois (Near Fairway Dr & Shore Rd)
+                    Naperville, illinois (near fairway dr & shore rd)
                   </p>
                 </div>
 

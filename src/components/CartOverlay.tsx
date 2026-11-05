@@ -81,7 +81,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                 </div>
                 <div>
                   <h3 className="font-serif text-lg font-semibold text-gold">
-                    Your Cart
+                    Your cart
                   </h3>
                   <p className="text-xs tabular-nums opacity-60">
                     {totalItems} {totalItems === 1 ? "item" : "items"} selected
@@ -103,7 +103,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                   <ShoppingBag className="w-12 h-12 text-gold/20 stroke-1" />
                   <div className="space-y-1">
                     <h4 className="font-serif text-gold/85 text-sm font-semibold">
-                      Your Cart is Empty
+                      Your cart is empty
                     </h4>
                     <p className="text-xs text-cream-dim max-w-[240px]">
                       Add mouth-watering dishes from the menu to start your real-time tracking order.
@@ -113,15 +113,15 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                     onClick={onClose}
                     className="mt-2 text-xs tabular-nums font-semibold text-gold hover:text-gold-hover border border-cream/10 hover:border-cream/10 px-4 py-2 bg-cream/5"
                   >
-                    Browse Menu
+                    Browse menu
                   </button>
                 </div>
               ) : (
                 <>
                   {/* Cart Items List */}
                   <div className="space-y-4">
-                    <h4 className="text-xs font-semibold text-gold tracking-[0.25em] border-b border-cream/10 pb-2">
-                      Selected Items
+                    <h4 className="text-xs font-semibold text-gold border-b border-cream/10 pb-2">
+                      Selected items
                     </h4>
                     <div className="space-y-3">
                       {cart.map((item) => (
@@ -193,8 +193,8 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
 
                   {/* Checkout Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <h4 className="text-xs font-semibold text-gold tracking-[0.25em] border-b border-cream/10 pb-2">
-                      Delivery & Contact Details
+                    <h4 className="text-xs font-semibold text-gold border-b border-cream/10 pb-2">
+                      Delivery & contact details
                     </h4>
 
                     {error && (
@@ -214,7 +214,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                             : "text-cream-dim hover:text-cream"
                         }`}
                       >
-                        Pickup at Truck
+                        Pickup at truck
                       </button>
                       <button
                         type="button"
@@ -225,7 +225,7 @@ export default function CartOverlay({ isOpen, onClose }: CartOverlayProps) {
                             : "text-cream-dim hover:text-cream"
                         }`}
                       >
-                        Local Delivery
+                        Local delivery
                       </button>
                     </div>
 

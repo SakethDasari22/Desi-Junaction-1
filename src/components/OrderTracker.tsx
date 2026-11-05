@@ -103,7 +103,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="space-y-1">
               <span className="font-serif text-xs text-gold block">
-                Live Order Tracker
+                Live order tracker
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl font-semibold text-cream">
                 Order {activeOrder.id}
@@ -115,7 +115,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
             <div className="bg-cream/5 border border-cream/10 rounded px-4 py-2 text-right self-start sm:self-center">
               <span className="text-xs text-gold block opacity-80">
-                Tracking Status
+                Tracking status
               </span>
               <span className="text-sm font-semibold text-gold-light block">
                 {activeOrder.status}
@@ -126,8 +126,8 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
         {/* Live Stepper Tracker */}
         <div className="bg-card-black border border-white/5 p-6 sm:p-8 rounded-lg">
-          <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold mb-8 border-b border-white/5 pb-2">
-            Real-Time Timeline
+          <h3 className="text-xs tabular-nums font-semibold text-gold mb-8 border-b border-white/5 pb-2">
+            Real-Time timeline
           </h3>
 
           <div className="relative">
@@ -193,7 +193,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
           <div className="p-6 md:p-8 md:col-span-3 space-y-4 flex flex-col justify-center">
             <h4 className="font-serif text-gold font-semibold text-sm">
-              Our Signature Red Food Truck Trailer
+              Our signature red food truck trailer
             </h4>
             <div className="space-y-2">
               {activeOrder.type === "pickup" ? (
@@ -233,8 +233,8 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
         {/* Order Details Accordion / Summary */}
         <div className="bg-card-black border border-white/5 p-6 rounded-lg space-y-4">
-          <h3 className="text-xs tabular-nums font-semibold tracking-[0.2em] text-gold border-b border-white/5 pb-2">
-            Items Ordered
+          <h3 className="text-xs tabular-nums font-semibold text-gold border-b border-white/5 pb-2">
+            Items ordered
           </h3>
 
           <div className="space-y-3 divide-y divide-white/5">
@@ -260,7 +260,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
 
           <div className="pt-4 border-t border-white/10 flex justify-between items-baseline">
             <span className="text-xs font-semibold text-gold-light">
-              Total Price (Incl. Tax)
+              Total price (incl. tax)
             </span>
             <span className="tabular-nums text-lg font-semibold text-gold">
               ${(activeOrder.totalPrice * 1.08).toFixed(2)}
@@ -274,7 +274,7 @@ export default function OrderTracker({ onClose }: OrderTrackerProps) {
             onClick={onClose}
             className="bg-gold hover:bg-gold-hover text-dark-black font-semibold px-8 py-3 rounded text-xs transition-colors duration-200 cursor-pointer"
           >
-            Keep Browsing Desi Junction
+            Keep browsing Desi Junction
           </button>
         </div>
 
